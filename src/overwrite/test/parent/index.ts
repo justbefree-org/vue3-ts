@@ -6,5 +6,7 @@
  * @E-mail: justbefree@126.com
  */
 
-import Parent from "./parent";
-export default Parent;
+export default () =>
+  import(/* webpackChunkName: "overwriteParent" */ "./parent").then((res) => {
+    return res.default;
+  });

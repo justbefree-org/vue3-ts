@@ -46,14 +46,8 @@ export const loadComponent = (path: string) => {
     hasOverWrite = false;
   }
   if (hasOverWrite) {
-    return () =>
-      import(
-        /* webpackChunkName: "[request]" */ `@/overwrite/${path}/index.ts`
-      );
+    return require(`@/overwrite/${path}/index.ts`).default;
   } else {
-    return () =>
-      import(
-        /* webpackChunkName: "[request]" */ `@/applications/${path}/index.ts`
-      );
+    return require(`@/applications/${path}/index.ts`).default;
   }
 };
