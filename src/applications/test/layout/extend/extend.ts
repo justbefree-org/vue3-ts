@@ -8,7 +8,9 @@
 import "./style/index.scss";
 import { BaseLayout, Options } from "@/base";
 import { h, VNode } from "vue";
-import Parent from "@/applications/test/parent";
+import ParentFun from "@/applications/test/parent";
+import { defineAsyncComponent } from "vue";
+const Parent = defineAsyncComponent(ParentFun);
 @Options({
   name: "Extend",
 })
@@ -18,7 +20,6 @@ export default class Extend extends BaseLayout {
     console.log("this is extend test");
   }
   render(): VNode {
-    // console.log("text", this.getProperLanguage("extend"));
     return h(
       "div",
       {},
